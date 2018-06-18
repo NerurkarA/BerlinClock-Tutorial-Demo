@@ -56,7 +56,7 @@ public class BerlinClock {
 
 	public String getHrsRepresentation() {
 		LOG.info("start===String getHrsRepresentation()");
-		LOG.info("start===String getHrsRepresentation()");
+		System.out.println("start===String getHrsRepresentation()");
 		String hrsRep = "";
 		int reminder = 0;
 		int div = 0;
@@ -88,7 +88,7 @@ public class BerlinClock {
 				hrsRep = firstHRROW;
 			}
 			String secondHRROW = "";
-			if (reminder > 0) {
+			if (reminder > =0) {
 
 				int remcount = 1;
 				for (int i = 1; i <= Constants.SECOND_HRROW_MAX; i++) {
@@ -114,13 +114,13 @@ public class BerlinClock {
 			hrsRep = Constants.hr0rep;
 		}
 		LOG.info("End===String getHrsRepresentation()");
-		LOG.info("End===String getHrsRepresentation()");
+		System.out.println("End===String getHrsRepresentation()");
 		return hrsRep;
 	}
 
 	public String getMinsRepresentation() {
 		LOG.info("start===String getMinsRepresentation()");
-		LOG.info("start===String getMinsRepresentation()");
+		System.out.println("start===String getMinsRepresentation()");
 		String minssRep = "";
 		int reminder = 0;
 		int div = 0;
@@ -182,21 +182,26 @@ public class BerlinClock {
 		}
 
 		LOG.info("End===String getMinsRepresentation()");
-		LOG.info("End===String getMinsRepresentation()");
+		System.out.println("End===String getMinsRepresentation()");
 		return minssRep;
 
 	}
 
 	public String getSecRepresentation() {
 		LOG.info("start===String getSecRepresentation()");
-		LOG.info("start===String getSecRepresentation()");
+		System.out.println("start===String getSecRepresentation()");
 		String secRep = Constants.LAMP_OFF;
+		try{
+			
 		if (sec % 2 == 0) {
 			secRep = Constants.LAMP_YELLOW;
+			}
+		}catch(NumberFormatException nfefs){
+			LOG.error(nfe.getMessage(), nfe);
 		}
 		secRep = secRep + Constants.NEW_LINE;
 		LOG.info("End===String getSecRepresentation()");
-		LOG.info("End===String getSecRepresentation()");
+		System.out.println("End===String getSecRepresentation()");
 		return secRep;
 	}
 
