@@ -20,7 +20,7 @@ public class BerlinClockApp implements TimeConverter {
 	@Override
 	public String convertTime(String aTime) {
 		LOG.info("start=== String convertTime(String aTime)");
-		LOG.info("start=== String convertTime(String aTime)");
+		System.out.println("start=== String convertTime(String aTime)");
 		BerlinClock clock = new BerlinClock();
 
 		String[] time = aTime.split(":");
@@ -68,11 +68,11 @@ public class BerlinClockApp implements TimeConverter {
 		String minRep = bClock.getMinsRepresentation();
 
 		berlinString = secRep + hrRep + minRep;
-		System.out.println("Input Time= " + aTime + " " + "\nOutput=\n "
-				+ berlinString);
+		//System.out.println("Input Time= " + aTime + " " + "\nOutput=\n "
+		//		+ berlinString);
 
 		LOG.info("End=== String convertTime(String aTime)");
-
+                System.out.println("End=== String convertTime(String aTime)");
 		return berlinString;
 	}
 
@@ -80,8 +80,8 @@ public class BerlinClockApp implements TimeConverter {
 
 		BerlinClockApp c = new BerlinClockApp();
 		LOG.info("Start- Main method");
-		c.convertTime("24:00:00");
-		// LOG.debug(c.convertTime("24:00:00")+"\n");
+		String expectedResult=c.convertTime("24:00:00");
+	        LOG.debug("c.convertTime(24:00:00)=\n"+expectedResult);
 		// System.out.println(c.convertTime("24:17:01")+"\n");
 		LOG.info("End- Main method");
 	}
